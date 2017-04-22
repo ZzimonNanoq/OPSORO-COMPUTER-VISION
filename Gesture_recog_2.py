@@ -55,7 +55,7 @@ for frame in cap.capture_continuous(im, format="bgr", use_video_port=True):
         angle = math.acos((b**2 + c**2 - a**2)/(2*b*c)) * 57
         if angle <= 90:
             count_defects += 1
-            cv2.circle(crop_img,far,1,[0,0,255],-1)
+            cv2.circle(drawing,far,1,[0,0,255],-1)
         #dist = cv2.pointPolygonTest(cnt,far,True)
         cv2.line(crop_img,start,end,[0,255,0],2)
         #cv2.circle(crop_img,far,5,[0,0,255],-1)
