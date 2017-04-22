@@ -6,10 +6,6 @@ from picamera.array import PiRGBArray
 from picamera import PiCamera
 from skimage.feature import hog
 
-
-# Load the classifier
-clf = joblib.load("digits_cls.pkl")
-
 # Defining the camera parameters: frame rate and resolution
 cap = PiCamera()
 cap.resolution = (640, 480)
@@ -25,7 +21,7 @@ for frame in cap.capture_continuous(im, format="bgr", use_video_port=True):
     blurred = cv2.GaussianBlur(grey, value, 0)
     _, thresh1 = cv2.threshold(blurred, 127, 255,
                                cv2.THRESH_BINARY_INV+cv2.THRESH_OTSU)
- #   cv2.imshow('Thresholded', thresh1)
+   #cv2.imshow('Thresholded', thresh1)
 
     (version, _, _) = cv2.__version__.split('.')
 
