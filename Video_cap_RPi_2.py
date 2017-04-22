@@ -88,8 +88,8 @@ for frame in cap.capture_continuous(im, format="bgr", use_video_port=True):
    
 
     # Display the resulting frame
-    cv2.imshow('frame', image)
-    cv2.imshow('Threshold', im_th)
+    # cv2.imshow('frame', image)
+    # cv2.imshow('Threshold', im_th)
     # Save image to folder that connected to the OPSORO website
     cv2.imwrite("~/OPSORO/OS/src/opsoro/apps/testapp/static/images/example.JPEG", image)
 
