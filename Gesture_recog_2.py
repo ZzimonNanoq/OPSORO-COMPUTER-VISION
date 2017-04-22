@@ -76,7 +76,7 @@ for frame in cap.capture_continuous(im, format="bgr", use_video_port=True):
     #cv2.imshow('Gesture', img)
     all_img = np.hstack((drawing, crop_img))
     #cv2.imshow('Contours', all_img)
-    cv2.imwrite("../OPSORO/OS/src/opsoro/apps/testapp/static/images/example.JPEG", thresh1)
+    cv2.imwrite("../OPSORO/OS/src/opsoro/apps/testapp/static/images/example.JPEG", contours)
     im.truncate(0)
     k = cv2.waitKey(10)
     if k == 27:
