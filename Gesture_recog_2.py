@@ -20,7 +20,7 @@ for frame in cap.capture_continuous(im, format="bgr", use_video_port=True):
     value = (35, 35)
     blurred = cv2.GaussianBlur(grey, value, 0)
     _, thresh1 = cv2.threshold(blurred, 127, 255,
-                               cv2.THRESH_BINARY_INV+cv2.THRESH_OTSU)
+                               cv2.THRESH_BINARY+cv2.THRESH_OTSU)
    #cv2.imshow('Thresholded', thresh1)
 
     (version, _, _) = cv2.__version__.split('.')
@@ -60,8 +60,10 @@ for frame in cap.capture_continuous(im, format="bgr", use_video_port=True):
         cv2.line(crop_img,start,end,[0,255,0],2)
         #cv2.circle(crop_img,far,5,[0,0,255],-1)
     
-    if count_defects == 1:
-        cv2.putText(drawing,"1", (50,50), cv2.FONT_HERSHEY_SIMPLEX, 2, 255)
+    if count_defects == 0:
+        cv2.putText(drawing, "1", (50,50), cv2.FONT_HERSHEY_SIMPLEX, 2, 255 )
+    elif count_defects == 1:
+        cv2.putText(drawing,"2", (50,50), cv2.FONT_HERSHEY_SIMPLEX, 2, 255)
     elif count_defects == 2:
         cv2.putText(drawing,"2", (50,50), cv2.FONT_HERSHEY_SIMPLEX, 2, 255)
     elif count_defects == 3:
