@@ -5,7 +5,6 @@ from picamera.array import PiRGBArray
 from picamera import PiCamera
 from skimage.feature import hog
 
-
 # Load the classifier
 clf = joblib.load("digits_cls.pkl")
 
