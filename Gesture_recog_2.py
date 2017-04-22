@@ -16,7 +16,7 @@ cap.framerate = 32
 im = PiRGBArray(cap, size=(640, 480))
 
 for frame in cap.capture_continuous(im, format="bgr", use_video_port=True):
-    ret, img = cap.read()
+    img = frame.array
     cv2.rectangle(img,(300,300),(100,100),(0,255,0),0)
     crop_img = img[100:300, 100:300]
     grey = cv2.cvtColor(crop_img, cv2.COLOR_BGR2GRAY)
