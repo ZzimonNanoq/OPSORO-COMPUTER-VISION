@@ -20,7 +20,7 @@ for frame in cap.capture_continuous(im, format="bgr", use_video_port=True):
     value = (35, 35)
     blurred = cv2.GaussianBlur(grey, value, 0)
     _, thresh1 = cv2.threshold(blurred, 127, 255,
-                               cv2.THRESH_BINARY+cv2.THRESH_OTSU)
+                               cv2.THRESH_BINARY_INV+cv2.THRESH_OTSU)
    #cv2.imshow('Thresholded', thresh1)
 
     (version, _, _) = cv2.__version__.split('.')
