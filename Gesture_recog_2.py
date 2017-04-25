@@ -38,8 +38,8 @@ for frame in cap.capture_continuous(im, format="bgr", use_video_port=True):
     cv2.rectangle(crop_img,(x,y),(x+w,y+h),(0,0,255),0)
     hull = cv2.convexHull(cnt)
     drawing = np.zeros(crop_img.shape,np.uint8)
-    cv2.drawContours(drawing,[cnt],0,(0,255,0),0)
-    cv2.drawContours(drawing,[hull],0,(0,0,255),0)
+    cv2.drawContours(img,[cnt],0,(0,255,0),0)
+    cv2.drawContours(img,[hull],0,(0,0,255),0)
     hull = cv2.convexHull(cnt,returnPoints = False)
     defects = cv2.convexityDefects(cnt,hull)
     count_defects = 0
@@ -55,21 +55,21 @@ for frame in cap.capture_continuous(im, format="bgr", use_video_port=True):
         angle = math.acos((b**2 + c**2 - a**2)/(2*b*c)) * 57
         if angle <= 90:
             count_defects += 1
-            cv2.circle(drawing,far,1,[0,0,255],-1)
+            cv2.circle(img,far,1,[0,0,255],-1)
         #dist = cv2.pointPolygonTest(cnt,far,True)
         cv2.line(crop_img,start,end,[0,255,0],2)
         #cv2.circle(crop_img,far,5,[0,0,255],-1)
     
     if count_defects == 0:
-        cv2.putText(drawing, "1", (50,50), cv2.FONT_HERSHEY_SIMPLEX, 3, 255 )
+        cv2.putText(img, "1", (50,50), cv2.FONT_HERSHEY_SIMPLEX, 3, 255 )
     elif count_defects == 1:
-        cv2.putText(drawing,"2", (50,50), cv2.FONT_HERSHEY_SIMPLEX, 3, 255)
+        cv2.putText(img,"2", (50,50), cv2.FONT_HERSHEY_SIMPLEX, 3, 255)
     elif count_defects == 2:
-        cv2.putText(drawing,"3", (50,50), cv2.FONT_HERSHEY_SIMPLEX, 3, 255)
+        cv2.putText(img,"3", (50,50), cv2.FONT_HERSHEY_SIMPLEX, 3, 255)
     elif count_defects == 3:
-        cv2.putText(drawing,"4", (50,50), cv2.FONT_HERSHEY_SIMPLEX, 3, 255)
+        cv2.putText(img,"4", (50,50), cv2.FONT_HERSHEY_SIMPLEX, 3, 255)
     elif count_defects == 4:
-        cv2.putText(drawing,"5", (50,50), cv2.FONT_HERSHEY_SIMPLEX, 3, 255)
+        cv2.putText(img,"5", (50,50), cv2.FONT_HERSHEY_SIMPLEX, 3, 255)
     else:
         cv2.putText(img,"Else", (50,50),\
                     cv2.FONT_HERSHEY_SIMPLEX, 2, 2)
@@ -78,7 +78,7 @@ for frame in cap.capture_continuous(im, format="bgr", use_video_port=True):
     #cv2.imshow('Gesture', img)
     all_img = np.hstack((drawing, crop_img))
     #cv2.imshow('Contours', all_img)
-    cv2.imwrite("../OPSORO/OS/src/opsoro/apps/testapp/static/images/example.JPEG",  drawing)
+    cv2.imwrite("../OPSORO/OS/src/opsoro/apps/testapp/static/images/example.JPEG",  img)
     im.truncate(0)
     k = cv2.waitKey(10)
     if k == 27:
