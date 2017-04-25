@@ -38,7 +38,7 @@ for frame in cap.capture_continuous(im, format="bgr", use_video_port=True):
     cv2.rectangle(crop_img,(x,y),(x+w,y+h),(0,0,255),0)
     hull = cv2.convexHull(cnt)
     drawing = np.zeros(crop_img.shape,np.uint8)
-    cv2.drawContours(img,[cnt],0,(0,255,0),0)
+    cv2.drawContours(crop_img,[cnt],0,(0,255,0),0)
     cv2.drawContours(drawing,[hull],0,(0,0,255),0)
     hull = cv2.convexHull(cnt,returnPoints = False)
     defects = cv2.convexityDefects(cnt,hull)
