@@ -61,15 +61,15 @@ for frame in cap.capture_continuous(im, format="bgr", use_video_port=True):
         #cv2.circle(crop_img,far,5,[0,0,255],-1)
     
     if count_defects == 0:
-        cv2.putText(drawing, "1", (50,50), cv2.FONT_HERSHEY_SIMPLEX, 2, 255 )
+        cv2.putText(drawing, "1", (50,50), cv2.FONT_HERSHEY_SIMPLEX, 3, 255 )
     elif count_defects == 1:
-        cv2.putText(drawing,"2", (50,50), cv2.FONT_HERSHEY_SIMPLEX, 2, 255)
+        cv2.putText(drawing,"2", (50,50), cv2.FONT_HERSHEY_SIMPLEX, 3, 255)
     elif count_defects == 2:
-        cv2.putText(drawing,"3", (50,50), cv2.FONT_HERSHEY_SIMPLEX, 2, 255)
+        cv2.putText(drawing,"3", (50,50), cv2.FONT_HERSHEY_SIMPLEX, 3, 255)
     elif count_defects == 3:
-        cv2.putText(drawing,"4", (50,50), cv2.FONT_HERSHEY_SIMPLEX, 2, 255)
+        cv2.putText(drawing,"4", (50,50), cv2.FONT_HERSHEY_SIMPLEX, 3, 255)
     elif count_defects == 4:
-        cv2.putText(drawing,"5", (50,50), cv2.FONT_HERSHEY_SIMPLEX, 2, 255)
+        cv2.putText(drawing,"5", (50,50), cv2.FONT_HERSHEY_SIMPLEX, 3, 255)
     else:
         cv2.putText(img,"Else", (50,50),\
                     cv2.FONT_HERSHEY_SIMPLEX, 2, 2)
