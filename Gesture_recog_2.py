@@ -14,7 +14,7 @@ im = PiRGBArray(cap, size=(640, 480))
 
 for frame in cap.capture_continuous(im, format="bgr", use_video_port=True):
     img = frame.array
-    cv2.rectangle(img,(300,300),(100,100),(0,255,0),0)
+    cv2.rectangle(crop_img,(300,300),(100,100),(0,255,0),0)
     crop_img = img[100:300, 100:300]
     grey = cv2.cvtColor(crop_img, cv2.COLOR_BGR2GRAY)
     value = (35, 35)
@@ -39,7 +39,7 @@ for frame in cap.capture_continuous(im, format="bgr", use_video_port=True):
     hull = cv2.convexHull(cnt)
     drawing = np.zeros(crop_img.shape,np.uint8)
     cv2.drawContours(img,[cnt],0,(0,255,0),0)
-    cv2.drawContours(img,[hull],0,(0,0,255),0)
+    cv2.drawContours(drawing,[hull],0,(0,0,255),0)
     hull = cv2.convexHull(cnt,returnPoints = False)
     defects = cv2.convexityDefects(cnt,hull)
     count_defects = 0
