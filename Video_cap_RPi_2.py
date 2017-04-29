@@ -37,7 +37,7 @@ for frame in cap.capture_continuous(im, format="bgr", use_video_port=True):
     im_th = cv2.erode(im_th, np.ones((3,3), np.uint8))
 
     im_th = cv2.morphologyEx(im_th, cv2.MORPH_ELLIPSE, (7,7))
-    im_th = cv2.morphologyEx(im_th, cv2.MORPH_CLOSE, np.ones((3,3), np.uint8))
+    im_th = cv2.morphologyEx(im_th, cv2.MORPH_CLOSE, np.ones((3,3), np.uint8))      #closing (dilation -> erosion)
    
 
     
